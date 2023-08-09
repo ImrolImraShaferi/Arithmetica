@@ -21,33 +21,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions Width="*"></Grid.ColumnDefinitions>
-        <!--<StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Grid.ColumnSpan="2">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>-->
-        <!--<ScrollView Grid.Row="1" Grid.ColumnSpan="2">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
-            </StackLayout>
-        </ScrollView>-->
 
         <Label x:Name="seconds"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">0</Label>
         <Label x:Name="points"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3">0</Label>
@@ -57,34 +30,37 @@
         <Button Text="(Re)Start" Clicked="Button_Clicked"  Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="3" HorizontalOptions="Center" />
         <Button Text="Stop" Clicked="Button_Clicked_1"   Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" HorizontalOptions="Center"/>
 
-        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6">Operations</Label>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">Player Name:</Label>
+        <Entry x:Name="Name" Grid.Row="4" Grid.Column="4" Keyboard="Text" Grid.ColumnSpan="3"></Entry>
+        
+        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="6">Operations</Label>
 
-        <CheckBox x:Name="useAddition" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
-        <Label Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="3">Additions</Label>
-        <CheckBox x:Name="useDeduction" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
-        <Label Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3">Deductions</Label>
+        <CheckBox x:Name="useAddition" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
+        <Label Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3">Additions</Label>
+        <CheckBox x:Name="useDeduction" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
+        <Label Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="3">Deductions</Label>
 
-        <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">1st Operant Range</Label>
-        <Entry x:Name="FirstMinRange" Grid.Row="7" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
-        <Entry x:Name="FirstMaxRange" Grid.Row="7" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
-        <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2">2nd Operant Range</Label>
-        <Entry x:Name="SecondMinRange" Grid.Row="8" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
-        <Entry x:Name="SecondMaxRange" Grid.Row="8" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2">1st Operant Range</Label>
+        <Entry x:Name="FirstMinRange" Grid.Row="8" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Entry x:Name="FirstMaxRange" Grid.Row="8" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2">2nd Operant Range</Label>
+        <Entry x:Name="SecondMinRange" Grid.Row="9" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Entry x:Name="SecondMaxRange" Grid.Row="9" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
 
-        <CheckBox x:Name="useMultiplication" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
-        <Label Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="3">Additions</Label>
-        <CheckBox x:Name="useDivision" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
-        <Label Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3">Deductions</Label>
+        <CheckBox x:Name="useMultiplication" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
+        <Label Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3">Multiplications</Label>
+        <CheckBox x:Name="useDivision" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3"></CheckBox>
+        <Label Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3">Divisions</Label>
 
-        <Label Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2">1st Operant Range</Label>
-        <Entry x:Name="MFirstMinRange" Grid.Row="11" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
-        <Entry x:Name="MFirstMaxRange" Grid.Row="11" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
-        <Label Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2">2nd Operant Range</Label>
-        <Entry x:Name="MSecondMinRange" Grid.Row="12" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
-        <Entry x:Name="MSecondMaxRange" Grid.Row="12" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Label Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2">1st Operant Range</Label>
+        <Entry x:Name="MFirstMinRange" Grid.Row="12" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Entry x:Name="MFirstMaxRange" Grid.Row="12" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Label Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2">2nd Operant Range</Label>
+        <Entry x:Name="MSecondMinRange" Grid.Row="13" Grid.Column="3" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
+        <Entry x:Name="MSecondMaxRange" Grid.Row="13" Grid.Column="5" Keyboard="Numeric" Grid.ColumnSpan="2"></Entry>
 
-        <Label Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3">Durations in Seconds</Label>
-        <Picker x:Name="duration" Title="select how many seconds!"  Grid.Row="13" Grid.Column="3" Grid.ColumnSpan="3">
+        <Label Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3">Durations in Seconds</Label>
+        <Picker x:Name="duration" Title="select how many seconds!"  Grid.Row="14" Grid.Column="3" Grid.ColumnSpan="3">
             <Picker.ItemsSource>
                 <x:Array Type="{ x:Type x:String}">
                     <x:String>30</x:String>
@@ -95,6 +71,7 @@
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
+        
     </Grid>
     
 

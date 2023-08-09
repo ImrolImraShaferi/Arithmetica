@@ -133,6 +133,7 @@ namespace Testing.Views
                     timer.Stop();
                     answer.IsReadOnly = true;
                     Item item = new Item();
+                    item.Name = Name.Text;
                     item.TimeStamp = DateTime.Now;
                     item.Text = question.Text;
                     item.Description = "Answered " + pointsCounter + " questions within " + secondsCounter + " seconds on " + item.TimeStamp.ToLongDateString() + " at " + item.TimeStamp.ToLongTimeString() + ".";
@@ -178,6 +179,13 @@ namespace Testing.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(Name.Text))
+            {
+                DisplayAlert("Alert", "Please input your name", "OK");
+                return;
+            }
+            
+
             //start timer 
             if (timer.Enabled)
             { timer.Stop(); }
@@ -192,6 +200,7 @@ namespace Testing.Views
             answer.IsReadOnly = false;
 
             GetTables();
+            answer.Focus();
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)

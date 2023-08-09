@@ -8,8 +8,9 @@
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Clear" Command="{Binding ClearItemsCommand}" />
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+        <ToolbarItem Text="Clear" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem Text="Export" Command="{Binding ExportCommand}" />
+        <!--<ToolbarItem Text="Add" Command="{Binding AddItemCommand}"  />-->
     </ContentPage.ToolbarItems>
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.

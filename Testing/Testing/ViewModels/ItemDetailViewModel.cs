@@ -9,6 +9,7 @@ namespace Testing.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
+        private string name;
         private string itemId;
         private string text;
         private string description;
@@ -16,6 +17,11 @@ namespace Testing.ViewModels
         private int score;
         public string Id { get; set; }
 
+        public string Name
+        {
+            get => name;
+            set => SetProperty(ref name, value);
+        }
         public string Text
         {
             get => text;
@@ -58,6 +64,7 @@ namespace Testing.ViewModels
             try
             {
                 var item = await DataStore.GetItemAsync(itemId);
+                Name = item.Name;
                 Id = item.Id;
                 Text = item.Text;
                 Description = item.Description;
