@@ -76,12 +76,13 @@ namespace Testing.Views
                     {
                         additions.Add(i.ToString() + " + " + j.ToString() + " = ?", addresult);
                     }
+                    Random selecter = new Random();
+                    int selectInt = selecter.Next(3);
 
-
-                    if (useDeduction.IsChecked && !deductions.ContainsKey(addresult.ToString() + " - " + j.ToString() + " = ?"))
+                    if (useDeduction.IsChecked && selectInt == 0 && !deductions.ContainsKey(addresult.ToString() + " - " + j.ToString() + " = ?"))
                         deductions.Add(addresult.ToString() + " - " + j.ToString() + " = ?", i);
 
-                    if (useDeduction.IsChecked && !deductions.ContainsKey(addresult.ToString() + " - " + i.ToString() + " = ?"))
+                    if (useDeduction.IsChecked && selectInt == 1 && !deductions.ContainsKey(addresult.ToString() + " - " + i.ToString() + " = ?"))
                         deductions.Add(addresult.ToString() + " - " + i.ToString() + " = ?", j);
 
                 }
@@ -100,10 +101,13 @@ namespace Testing.Views
                         multiplications.Add(i.ToString() + " x " + j.ToString() + " = ?", multiplicresult);
                     }
 
-                    if (useDivision.IsChecked && !divisions.ContainsKey(multiplicresult.ToString() + " / " + j.ToString() + " = ?"))
+                    Random selecter = new Random();
+                    int selectInt = selecter.Next(3);
+
+                    if (useDivision.IsChecked && selectInt == 0 && !divisions.ContainsKey(multiplicresult.ToString() + " / " + j.ToString() + " = ?"))
                         divisions.Add(multiplicresult.ToString() + " / " + j.ToString() + " = ?", i);
 
-                    if (useDivision.IsChecked && !divisions.ContainsKey(multiplicresult.ToString() + " / " + i.ToString() + " = ?"))
+                    if (useDivision.IsChecked && selectInt == 1 && !divisions.ContainsKey(multiplicresult.ToString() + " / " + i.ToString() + " = ?"))
                         divisions.Add(multiplicresult.ToString() + " / " + i.ToString() + " = ?", j);
 
                 }
