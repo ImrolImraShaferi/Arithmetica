@@ -3,5 +3,4 @@
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34" />
 	<application android:label="Arithmetica" android:theme="@style/MainTheme" android:icon="@mipmap/icon"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.WRITE_PROFILE" />
 </manifest>
